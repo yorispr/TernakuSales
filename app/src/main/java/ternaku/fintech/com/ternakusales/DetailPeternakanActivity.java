@@ -142,9 +142,10 @@ public class DetailPeternakanActivity extends AppCompatActivity {
                             P.setJumlah_ternak(jObj.getInt("JUMLAH_TERNAK"));
                             P.setLayanan_aktif(jObj.getInt("LAYANAN_AKTIF"));
                             P.setTgl_expired(jObj.getString("tanggal_expire"));
-                            P.setNama_peternakan(jObj.getString("NAMA"));
+                            P.setNama_pemilik(jObj.getString("NAMA"));
                             setDetail(P);
                             getSupportActionBar().setTitle(P.getNama_peternakan());
+                            
                         }else{
                             Toast.makeText(getApplication(),"Terjadi kesalahan!", Toast.LENGTH_LONG).show();
                         }
