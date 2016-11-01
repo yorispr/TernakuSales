@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity
         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
-                Toast.makeText(getApplicationContext(),"Post : "+listPenjualan.get(i).getId_penjualan(),Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(),"Post : "+listPenjualan.get(i).getId_penjualan(),Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(MainActivity.this,DetailPeternakanActivity.class);
                 intent.putExtra("idpeternakan",listPenjualan.get(i).getId_peternakan());
                 startActivity(intent);
@@ -107,6 +107,8 @@ public class MainActivity extends AppCompatActivity
         btnRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                imgtidakada.setVisibility(View.GONE);
+                txttidakada.setVisibility(View.GONE);
                 listPenjualan.clear();
                 listDataHeader.clear();
                 listDataChild.clear();
@@ -165,6 +167,8 @@ public class MainActivity extends AppCompatActivity
                             P.setId_penjualan(jObj.getString("ID_PENJUALAN"));
                             P.setId_peternakan(jObj.getString("ID_PETERNAKAN"));
                             P.setTgl_transaksi(jObj.getString("TGL_TRANSAKSI"));
+                            P.setNama_peternakan(jObj.getString("NAMA_PETERNAKAN"));
+                            P.setLat(jObj.getString("NAMA"));
                             P.setTelpon(jObj.getString("BIAYA"));
                             listPenjualan.add(P);
                             progDialog.dismiss();
@@ -207,7 +211,8 @@ public class MainActivity extends AppCompatActivity
                 List<String> listIsi = new ArrayList<String>();
 
                 listIsi.add("Nomor Penjualan : " + listPenjualan.get(i).getId_penjualan()
-                        + "\nNomor Peternakan : " + listPenjualan.get(i).getId_peternakan()
+                        + "\nNama Peternakan : " + listPenjualan.get(i).getNama_peternakan()
+                        + "\nPemilik Peternakan : " + listPenjualan.get(i).getLat()
 
                 );
                 listDataChild.put(listDataHeader.get(i), listIsi);
