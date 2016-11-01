@@ -145,7 +145,7 @@ public class DetailPeternakanActivity extends AppCompatActivity {
                             P.setNama_pemilik(jObj.getString("NAMA"));
                             setDetail(P);
                             getSupportActionBar().setTitle(P.getNama_peternakan());
-                            
+
                         }else{
                             Toast.makeText(getApplication(),"Terjadi kesalahan!", Toast.LENGTH_LONG).show();
                         }
